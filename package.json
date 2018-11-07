@@ -1,0 +1,37 @@
+{
+  "name": "kickboxing-combos",
+  "version": "1.0.0",
+  "description": "\"A web application for calling out combos\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/comboSeedDB.js",
+    "install": "cd client && yarn install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitty10010/workoutappsrevenge.git"
+  },
+  "author": "Pat Neff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/discopat1/Pad-holder-app"
+  },
+  "homepage": "https://github.com/discopat1/Pad-holder-app",
+  "dependencies": {
+    "@material-ui/core": "^3.2.0",
+    "axios": "^0.18.0",
+    "concurrently": "^4.0.1",
+    "connect-ensure-login": "^0.1.1",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.1"
+  },
+  "devDependencies": {}
+}
