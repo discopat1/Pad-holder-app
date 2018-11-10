@@ -44,11 +44,13 @@ class Menu extends Component {
                 <button type="button" class="text-danger rounded">Advanced</button>
                 <br/>
                 <br/>
-                <button type="button" className="bg-success text-light rounded">Start</button>
             </div>
             <div className="right col-4">
                 <button type="button" class="text-danger rounded">MMA</button>
             </div>
+        </div>
+        <div className="container center">
+                <button type="button" className="bg-success text-light rounded">Start</button>
         </div>
     </div>
         );

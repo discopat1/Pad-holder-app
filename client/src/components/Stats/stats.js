@@ -44,7 +44,7 @@ class Stats extends Component {
                         <div class="row">
                         <div className="time col-sm-4 text-light">
                             <h3>36:23</h3>
-                            <button>Home</button>
+                            <button className="bg-primary text-light rounded">Home</button>
                         </div>
                         </div>
                     </div>
