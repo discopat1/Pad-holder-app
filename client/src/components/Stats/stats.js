@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./stats.css";
 
 
@@ -44,7 +45,7 @@ class Stats extends Component {
                         <div class="row">
                         <div className="time col-sm-4 text-light">
                             <h3>36:23</h3>
-                            <button className="bg-primary text-light rounded">Home</button>
+                            <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
                         </div>
                         </div>
                     </div>

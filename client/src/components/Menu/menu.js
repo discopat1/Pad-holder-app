@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./menu.css"
 
 
@@ -7,6 +8,10 @@ class Menu extends Component {
     state = {
         level: "",
         style: "",
+    }
+
+    handleButtonSubmit = () => {
+
     }
 
     
@@ -50,7 +55,7 @@ class Menu extends Component {
             </div>
         </div>
         <div className="container center">
-                <button type="button" className="bg-success text-light rounded">Start</button>
+                <Link to="/Work"><button type="button" className="bg-success text-light rounded">Start</button></Link>
         </div>
     </div>
         );

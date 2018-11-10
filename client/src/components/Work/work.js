@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./work.css";
 
 
@@ -45,7 +46,7 @@ class Work extends Component {
                 <div class="row">
                 <div className="round col-sm-4 text-light">
                     <h2>2:43</h2>
-                    <button className="bg-danger text-light rounded">Finish</button>
+                    <Link to="/Stats"><button className="bg-danger text-light rounded">Finish</button></Link>
                 </div>
                 </div>
             </div>
