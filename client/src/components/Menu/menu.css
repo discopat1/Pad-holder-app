@@ -3,3 +3,16 @@
     width: 170px;
     opacity: 0.75;
 }
+
+.right {
+    text-align: right;
+}
+.start {
+    text-align: center;
+}
+@media only screen and (min-width: 988px) {
+    .image {
+        position: relative;
+        top: -40px;
+    }
+}

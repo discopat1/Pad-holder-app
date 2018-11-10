@@ -25,7 +25,7 @@ class Menu extends Component {
             <div className="col-4">
                 <button type="button" class="text-danger rounded">Beginner</button>
             </div>
-            <div className="col-4">
+            <div className="right col-4">
                 <button type="button" class="text-danger rounded">Boxing</button>
             </div>
         </div>
@@ -34,7 +34,7 @@ class Menu extends Component {
             <div className="col-4">
                 <button type="button" class="text-danger rounded">Intermediate</button>
             </div>
-            <div className="col-4">
+            <div className="right col-4">
                 <button type="button" class="text-danger rounded">Kickboxing</button>
             </div>
         </div>
@@ -44,9 +44,9 @@ class Menu extends Component {
                 <button type="button" class="text-danger rounded">Advanced</button>
                 <br/>
                 <br/>
-                <button type="button" class="bg-success text-light rounded">Start</button>
+                <button type="button" className="bg-success text-light rounded">Start</button>
             </div>
-            <div className="col-4">
+            <div className="right col-4">
                 <button type="button" class="text-danger rounded">MMA</button>
             </div>
         </div>

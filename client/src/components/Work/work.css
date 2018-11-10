@@ -1,18 +1,21 @@
+
 .card1 {
     width: 10rem;
     position: relative;
     left: 25px;
-    top: 15px;
+    top: 10px;
 }
 
 .card2 {
     width: 10rem;
     position: relative;
-    top: 15px;
+    top: 10px;
 }
 
 .round {
     margin-left: 25px;
-    margin-top: 50px;
-    /* align-content: center; */
+    margin-top: 55px;
+    text-align: center;
+    margin-bottom: 10px;
 }
+
