@@ -55,7 +55,7 @@ class Menu extends Component {
             </div>
         </div>
         <div className="container center">
-                <Link to="/Work"><button type="button" className="bg-success text-light rounded">Start</button></Link>
+                <Link to="/Work"><button type="button" className="bg-success text-light rounded">Work</button></Link>
         </div>
     </div>
         );

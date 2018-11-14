@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-var indexRouter = require('./routes/auth/index');
 var bodyParser = require("body-parser");
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
@@ -13,8 +12,6 @@ var bodyParser = require("body-parser");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/', indexRouter);
-// app.use('/', authRouter);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
