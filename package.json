@@ -1,6 +1,11 @@
 {
   "name": "kickboxing-combos",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.11.0",
+    "yarn": "1.10.1",
+    "npm": "6.4.1"
+  },
   "description": "\"A web application for calling out combos\"",
   "main": "server.js",
   "scripts": {
@@ -15,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smitty10010/workoutappsrevenge.git"
+    "url": "git+https://github.com/discopat1/Pad-holder-app.git"
   },
   "author": "Pat Neff",
   "license": "ISC",
@@ -24,10 +29,8 @@
   },
   "homepage": "https://github.com/discopat1/Pad-holder-app",
   "dependencies": {
-    "@material-ui/core": "^3.2.0",
     "axios": "^0.18.0",
     "concurrently": "^4.0.1",
-    "connect-ensure-login": "^0.1.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "lodash": "^4.17.11",
