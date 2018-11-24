@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./work.css";
+import API from "../utils/API";
 
 
 class Work extends Component {
@@ -12,6 +13,8 @@ class Work extends Component {
      breakMinutes: '1',
      round: '1',
      work: true,
+     combo: '',
+     strikes: 0
    }
    // method that triggers the countdown functionality
    this.startCountDown = this.startCountDown.bind(this);
@@ -20,16 +23,23 @@ class Work extends Component {
    this.round = this.round.bind(this);
    this.break = this.break.bind(this);
    this.display = this.display.bind(this);
+   this.getCombo = this.getCombo.bind(this);
    }
+
+    // Starts timer
     startCountDown() {
         this.round();
         this.roundNumber = 1;
     }
+    // Starts Round
     round() {
         this.intervalHandle = setInterval(this.roundTick, 1000);
         let time = this.state.roundMinutes;
         this.secondNumber = time * 60;
+        this.callCombos();
     }
+    
+    // Makes minutes and seconds go down
     roundTick() {
         var min = Math.floor(this.secondNumber / 60);
         var sec = this.secondNumber - (min * 60);
@@ -52,15 +62,17 @@ class Work extends Component {
         }
         if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
-            this.break();
+            this.toggle();
             this.setState({
                 roundMinutes: '3'
             })
         }
         console.log("round minutes==", this.state.roundMinutes);
         console.log("break minutes===", this.state.breakMinutes);
-            this.secondNumber--
+            this.secondNumber--;
     }
+
+    // Break functions
     break() {
         this.intervalHandle = setInterval(this.breakTick, 1000);
         let time = this.state.breakMinutes;
@@ -96,7 +108,7 @@ class Work extends Component {
         }
             this.secondNumber--
     }
-   
+    // Displays Round or Break
     display() {
        if (this.state.work === true) {
            return `Round ${this.state.round} of 5`;
@@ -104,6 +116,7 @@ class Work extends Component {
             return 'Break';
        }
     }
+    // Decides Round or break for minutes
     clockMinutes() {
         if (this.state.work === true) {
             return this.state.roundMinutes;
@@ -111,6 +124,53 @@ class Work extends Component {
             return this.state.breakMinutes;
         }
     }
+    // End session after last round or go to break in between rounds
+    toggle() {
+        if (this.roundNumber === 5) {
+            this.endSession()
+        }
+        else {
+            this.break();
+        }
+    }
+
+    // End session
+    endSession() {
+        console.log("end session");
+        clearInterval(this.intervalHandle);
+    }
+
+    // API call to get combos
+    getCombo() {
+        API.findAll()
+        .then(res => 
+            this.setState({ 
+                combo: res.data.combo,
+                // strikes: this.totalStrikes
+            }))
+        .catch(err => console.log(err));
+        this.totalStrikes();
+    }
+
+    // Combo random timer
+    callCombos() {
+        this.intervalHandle = setInterval(this.getCombo, (Math.floor(Math.random() * 6000) + 2500));
+        if (this.state.work === false) {
+            clearInterval(this.intervalHandle);
+        }
+    }
+
+    // Add strikes based on combos called
+    totalStrikes() {
+       const arr = this.string_to_array(this.state.combo);
+       console.log('arr===', arr);
+       const length = arr.length;
+       this.setState({ strikes: this.state.strikes + length });
+    }
+
+    string_to_array = function (str) {
+        return str.trim().split(", ");
+   };
 
     render() {
         console.log("round minutes==", this.state.roundMinutes);
@@ -136,9 +196,9 @@ class Work extends Component {
                 <div className="card card1">
                     <div className="card-body">
                         <h5 class="card-title">Current Combo</h5>
-                        <p class="card-text">Jab</p>
-                        <p class="card-text">Cross</p>
-                        <p class="card-text">Hook</p>
+                        <p class="card-text">{this.state.combo}</p>
+                        {/* <p class="card-text">Cross</p>
+                        <p class="card-text">Hook</p> */}
                     </div>
                 </div>
             </div>
@@ -147,7 +207,7 @@ class Work extends Component {
                     <div className="card-body">
                         <h5 class="card-title">Total Strikes:</h5>
                         <br/>
-                        <p class="card-text">23</p>
+                        <p class="card-text">{this.state.strikes}</p>
                     </div>
                 </div>
             </div>
