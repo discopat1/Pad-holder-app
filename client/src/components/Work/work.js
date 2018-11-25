@@ -146,19 +146,17 @@ class Work extends Component {
         .then(res => 
             this.setState({ 
                 combo: res.data.combo,
-                // strikes: this.totalStrikes
             }))
         .catch(err => console.log(err));
+        this.callCombos();
         this.totalStrikes();
     }
 
     // Combo random timer
     callCombos() {
-        this.intervalHandle = setInterval(this.getCombo, (Math.floor(Math.random() * 6000) + 2500));
-        if (this.state.work === false) {
-            clearInterval(this.intervalHandle);
-        }
-    }
+        var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
+        setTimeout(this.getCombo, rand);
+    };
 
     // Add strikes based on combos called
     totalStrikes() {
