@@ -43,6 +43,7 @@ class Work extends Component {
     callCombos() {
         var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
         setTimeout(this.getCombo, rand);
+        this.speak();
     };
 
     // API call to get combos
@@ -98,7 +99,6 @@ class Work extends Component {
         this.intervalHandle = setInterval(this.breakTick, 1000);
         let time = this.state.breakMinutes;
         this.secondNumber = time * 60;
-        // stop combo
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);
@@ -181,6 +181,14 @@ class Work extends Component {
         if (this.state.strikes > 0) {
             return this.state.strikes;
         }
+    }
+
+    // speech function?
+    speak() {
+        const msg = new SpeechSynthesisUtterance();
+        msg.text = this.state.combo;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(msg);
     }
     render() {
         return (
