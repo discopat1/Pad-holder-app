@@ -14,7 +14,7 @@ class Work extends Component {
      round: '1',
      work: true,
      combo: '',
-     strikes: 0
+     strikes: -1
    }
    // method that triggers the countdown functionality
    this.startCountDown = this.startCountDown.bind(this);
@@ -37,6 +37,29 @@ class Work extends Component {
         let time = this.state.roundMinutes;
         this.secondNumber = time * 60;
         this.callCombos();
+    }
+
+    // Combo random timer
+    callCombos() {
+        var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
+        setTimeout(this.getCombo, rand);
+    };
+
+    // API call to get combos
+    getCombo() {
+        if (this.state.work) {
+            API.findAll()
+        .then(res => 
+            this.setState({ 
+                combo: res.data.combo,
+            }))
+        .catch(err => console.log(err));
+        this.callCombos();
+        this.totalStrikes();
+        } else {
+            this.setState({ combo: 'Break' })
+        }
+        
     }
     
     // Makes minutes and seconds go down
@@ -67,8 +90,6 @@ class Work extends Component {
                 roundMinutes: '3'
             })
         }
-        console.log("round minutes==", this.state.roundMinutes);
-        console.log("break minutes===", this.state.breakMinutes);
             this.secondNumber--;
     }
 
@@ -77,6 +98,7 @@ class Work extends Component {
         this.intervalHandle = setInterval(this.breakTick, 1000);
         let time = this.state.breakMinutes;
         this.secondNumber = time * 60;
+        // stop combo
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);
@@ -138,41 +160,29 @@ class Work extends Component {
     endSession() {
         console.log("end session");
         clearInterval(this.intervalHandle);
+        window.location.href="/Stats";
     }
-
-    // API call to get combos
-    getCombo() {
-        API.findAll()
-        .then(res => 
-            this.setState({ 
-                combo: res.data.combo,
-            }))
-        .catch(err => console.log(err));
-        this.callCombos();
-        this.totalStrikes();
-    }
-
-    // Combo random timer
-    callCombos() {
-        var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
-        setTimeout(this.getCombo, rand);
-    };
+    
 
     // Add strikes based on combos called
     totalStrikes() {
        const arr = this.string_to_array(this.state.combo);
-       console.log('arr===', arr);
        const length = arr.length;
-       this.setState({ strikes: this.state.strikes + length });
+            this.setState({ strikes: this.state.strikes + length });
     }
-
+    
+    // string to array
     string_to_array = function (str) {
         return str.trim().split(", ");
    };
 
+    // Solution to get around intitial 1-index array
+    displayPositiveStrikes() {
+        if (this.state.strikes > 0) {
+            return this.state.strikes;
+        }
+    }
     render() {
-        console.log("round minutes==", this.state.roundMinutes);
-        console.log("break minutes===", this.state.breakMinutes);
         return (
             <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid">
@@ -195,8 +205,6 @@ class Work extends Component {
                     <div className="card-body">
                         <h5 class="card-title">Current Combo</h5>
                         <p class="card-text">{this.state.combo}</p>
-                        {/* <p class="card-text">Cross</p>
-                        <p class="card-text">Hook</p> */}
                     </div>
                 </div>
             </div>
@@ -205,7 +213,7 @@ class Work extends Component {
                     <div className="card-body">
                         <h5 class="card-title">Total Strikes:</h5>
                         <br/>
-                        <p class="card-text">{this.state.strikes}</p>
+                        <p class="card-text">{this.displayPositiveStrikes()}</p>
                     </div>
                 </div>
             </div>
