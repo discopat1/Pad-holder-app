@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./work.css";
 import API from "../utils/API";
+import Bell from "../Sounds/bell.m4a"
 
 
 class Work extends Component {
@@ -14,7 +15,8 @@ class Work extends Component {
      round: '1',
      work: true,
      combo: '',
-     strikes: -1
+     strikes: -1,
+     clockRunning: true
    }
    // method that triggers the countdown functionality
    this.startCountDown = this.startCountDown.bind(this);
@@ -24,25 +26,50 @@ class Work extends Component {
    this.break = this.break.bind(this);
    this.display = this.display.bind(this);
    this.getCombo = this.getCombo.bind(this);
+   this.pause = this.pause.bind(this);
+   this.audio = new Audio(Bell);
    }
+
+    // Bell
+    bellRing() {
+        this.audio.play();
+    }
 
     // Starts timer
     startCountDown() {
         this.round();
         this.roundNumber = 1;
+        this.setState({
+            clockRunning: true
+        });
+        if (this.state.roundMinutes === '3') {
+        this.bellRing();
+        }
     }
     // Starts Round
     round() {
-        this.intervalHandle = setInterval(this.roundTick, 1000);
-        let time = this.state.roundMinutes;
-        this.secondNumber = time * 60;
-        this.callCombos();
+            this.intervalHandle = setInterval(this.roundTick, 1000);
+            let time = this.state.roundMinutes;
+            if (this.state.roundMinutes === '3') {
+                this.secondNumber = time * 60;
+            }
+            this.callCombos();
+    }
+
+    pause() {
+        clearInterval(this.intervalHandle);
+        clearInterval(this.comboHandle);
+        if (this.state.clockRunning) {
+            this.setState({ clockRunning: false })
+        } else {
+            this.setState({ clockRunning: true })
+        }
     }
 
     // Combo random timer
     callCombos() {
         var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
-        setTimeout(this.getCombo, rand);
+        this.comboHandle = setTimeout(this.getCombo, rand);
         this.speak();
     };
 
@@ -96,9 +123,9 @@ class Work extends Component {
 
     // Break functions
     break() {
-        this.intervalHandle = setInterval(this.breakTick, 1000);
-        let time = this.state.breakMinutes;
-        this.secondNumber = time * 60;
+            this.intervalHandle = setInterval(this.breakTick, 1000);
+            let time = this.state.breakMinutes;
+            this.secondNumber = time * 60;
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);
@@ -124,6 +151,7 @@ class Work extends Component {
         clearInterval(this.intervalHandle);
             this.roundNumber++;
             this.round();
+            this.bellRing();
             this.setState({
                 breakMinutes: '1'
             })
@@ -152,6 +180,7 @@ class Work extends Component {
             this.endSession()
         }
         else {
+            this.bellRing();
             this.break();
         }
     }
@@ -191,6 +220,9 @@ class Work extends Component {
         speechSynthesis.speak(msg);
     }
     render() {
+        console.log('break minutes===', this.state.breakMinutes);
+        console.log('round mins==', this.state.roundMinutes);
+        console.log('seconds===', this.state.seconds)
         return (
             <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid">
@@ -203,6 +235,13 @@ class Work extends Component {
             <div class="row">
                 <div className="round col-sm-4 text-light">
                     <button className="bg-success text-light rounded" onClick={this.startCountDown}>Start</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div className="round col-sm-4 text-light">
+                    <button className="bg-danger text-light rounded" onClick={this.pause}>Pause</button>
                 </div>
             </div>
         </div>
