@@ -216,13 +216,13 @@ class Work extends Component {
     speak() {
         const msg = new SpeechSynthesisUtterance();
         msg.text = this.state.combo;
+        var voices = speechSynthesis.getVoices()
+        msg.voice = voices[7]
         speechSynthesis.cancel();
         speechSynthesis.speak(msg);
     }
     render() {
-        console.log('break minutes===', this.state.breakMinutes);
-        console.log('round mins==', this.state.roundMinutes);
-        console.log('seconds===', this.state.seconds)
+        console.log('voices===', window.speechSynthesis.getVoices())
         return (
             <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid">
