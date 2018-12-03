@@ -68,8 +68,12 @@ class Work extends Component {
 
     // Combo random timer
     callCombos() {
-        var rand = Math.round(Math.random() * (6000 - 2500)) + 2500;
-        this.comboHandle = setTimeout(this.getCombo, rand);
+        const arr = this.string_to_array(this.state.combo);
+        const length = arr.length;
+        const comboInt = ((length * 0.88) * 1000);
+        const randInt = Math.round(Math.random() * (3000 - 1000)) + 1000;
+        const totalInt = randInt + comboInt;
+        this.comboHandle = setTimeout(this.getCombo, totalInt);
         this.speak();
     };
 
