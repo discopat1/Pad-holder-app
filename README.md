@@ -9,7 +9,7 @@ This is a web application for Boxers, Kickboxers, MMA fighters, or anyone lookin
 * Bootstrap - CSS library
 
 # Contributing: 
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Contact me directly if interested in contributing :)
 
 # Author: 
 Patrick Neff - Me
