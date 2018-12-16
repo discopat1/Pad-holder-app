@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./work.css";
 import API from "../utils/API";
 import Bell from "../Sounds/bell.m4a"
+import Clapper from "../Sounds/clapper.m4a"
 
 
 class Work extends Component {
@@ -27,12 +28,17 @@ class Work extends Component {
    this.display = this.display.bind(this);
    this.getCombo = this.getCombo.bind(this);
    this.pause = this.pause.bind(this);
-   this.audio = new Audio(Bell);
+   this.bell = new Audio(Bell);
+   this.clapper = new Audio(Clapper);
    }
 
     // Bell
     bellRing() {
-        this.audio.play();
+        this.bell.play();
+    }
+    // Clapper
+    clapSound() {
+        this.clapper.play();
     }
 
     // Starts timer
@@ -115,6 +121,9 @@ class Work extends Component {
             value: "0" + min,
             })
         }
+        if (min === 0 & sec === 10) {
+            this.clapSound();
+        }
         if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
             this.toggle();
@@ -150,6 +159,9 @@ class Work extends Component {
         this.setState({
             value: "0" + min,
             })
+        }
+        if (min === 0 & sec === 10) {
+            this.clapSound();
         }
         if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
