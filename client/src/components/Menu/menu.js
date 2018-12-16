@@ -18,14 +18,12 @@ class Menu extends Component {
     render() {
         return (
     <div class="bg-dark">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                            <img src={"./images/senchai-pads.jpg"} className="rounded float-right image" alt="..."/>
-                <h1 class="display-4">Virtual Pad Holder!</h1>
+        <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
+        </div>
+        <div class="container heading">
+                <h1 class="display-4">Pad Holder!</h1>
                 <p class="lead text-danger">Increase your reaction time as classic fight combinations are called out to you!</p>
             </div>
-        </div>
-        <br/>
         <div className="row justify-content-around">
             <div className="col-4">
                 <button type="button" class="text-danger rounded">Beginner</button>

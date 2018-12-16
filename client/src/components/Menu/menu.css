@@ -1,8 +1,4 @@
-.image {
-    height: 200px;
-    width: 170px;
-    opacity: 0.75;
-}
+
 
 .right {
     text-align: right;
@@ -14,9 +10,6 @@
     text-align: center;
     margin-bottom: 25px;
 }
-@media only screen and (min-width: 988px) {
-    .image {
-        position: relative;
-        top: -40px;
-    }
+.heading {
+    background-color: rgba(208, 208, 208)
 }

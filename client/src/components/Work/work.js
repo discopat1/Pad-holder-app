@@ -229,11 +229,11 @@ class Work extends Component {
         console.log('voices===', window.speechSynthesis.getVoices())
         return (
             <div class="bg-dark">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Work!</h1>
-                <p class="lead text-danger">Throw your combos as they're called out!</p>
-            </div>
+        <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
+        </div>
+        <div className="container heading">
+            <h1 class="display-4">Work!</h1>
+            <p class="lead text-danger">Throw your combos as they're called out!</p>
         </div>
         <div class="container">
             <div class="row">
@@ -242,7 +242,7 @@ class Work extends Component {
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container"> 
             <div class="row">
                 <div className="round col-sm-4 text-light">
                     <button className="bg-danger text-light rounded" onClick={this.pause}>Pause</button>
@@ -276,10 +276,10 @@ class Work extends Component {
                     </div>
                 </div>
                 <div class="row">
-                <div className="round col-sm-4 text-light">
-                    <h2>{this.clockMinutes()}:{this.state.seconds}</h2>
-                    <Link to="/Stats"><button className="bg-danger text-light rounded">Finish</button></Link>
-                </div>
+                    <div className="round col-sm-4 text-light">
+                        <h2>{this.clockMinutes()}:{this.state.seconds}</h2>
+                        <Link to="/Stats"><button className="bg-danger text-light rounded">Finish</button></Link>
+                    </div>
                 </div>
             </div>
         </div>

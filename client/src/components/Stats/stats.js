@@ -10,11 +10,11 @@ class Stats extends Component {
     render() {
         return (
             <div class="bg-dark">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-4">Stats!</h1>
-                        <p class="lead text-danger">Total Results:</p>
-                    </div>
+                <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
+                </div>
+                <div class="container heading">
+                    <h1 class="display-4">Stats!</h1>
+                    <p class="lead text-danger">Total Results:</p>
                 </div>
                 <div class="row">
                     <div className="col-6">
