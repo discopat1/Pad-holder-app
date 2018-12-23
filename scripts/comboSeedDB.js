@@ -172,6 +172,54 @@ const comboSeed = [
         mma: true
     },
     {
+        combo: "cross, hook, cross",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "cross, hook, cross, cross",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "cross, hook, cross, hook",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "cross, low-hook, high-hook",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "double cross",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "cross, uppercut, cross",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "uppercut, cross, hook",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
+        combo: "uppercut, cross, hook, cross",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
         combo: "cross, hook, round-kick",
         boxing: false,
         kickboxing: true,

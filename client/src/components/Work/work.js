@@ -85,7 +85,9 @@ class Work extends Component {
 
     // API call to get combos
     getCombo() {
-        if (this.state.work) {
+        const style = sessionStorage.getItem('style');
+        console.log("style---_-_-_", style);
+        if (this.state.work && style === 'mma') {
             API.findAll()
         .then(res => 
             this.setState({ 
@@ -94,7 +96,17 @@ class Work extends Component {
         .catch(err => console.log(err));
         this.callCombos();
         this.totalStrikes();
-        } else {
+        } else if (this.state.work && style === 'boxing') {
+            API.findBoxing()
+        .then(res => 
+            this.setState({ 
+                combo: res.data.combo,
+            }))
+        .catch(err => console.log(err));
+        this.callCombos();
+        this.totalStrikes();
+        }
+        else {
             this.setState({ combo: 'Break' })
         }
         
@@ -238,6 +250,8 @@ class Work extends Component {
         speechSynthesis.speak(msg);
     }
     render() {
+        console.log("storage level====", localStorage.getItem('level'));
+        console.log("storagestyle", sessionStorage.getItem('style'));
         console.log('voices===', window.speechSynthesis.getVoices())
         return (
             <div class="bg-dark">

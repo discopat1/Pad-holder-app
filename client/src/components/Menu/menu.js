@@ -10,12 +10,51 @@ class Menu extends Component {
         style: "",
     }
 
-    handleButtonSubmit = () => {
-
+    handleBeginnerClick = () => {
+        this.setState({
+            level: 'beginner'
+        })
     }
 
+    handleBoxingClick = () => {
+        this.setState({
+            style: 'boxing'
+        })
+    }
+
+    handleIntermediateClick = () => {
+        this.setState({
+            level: 'intermediate'
+        })
+    }
+
+    handleKickBoxingClick = () => {
+        this.setState({
+            style: 'kickboxing'
+        })
+    }
+
+    handleAdvancedClick = () => {
+        this.setState({
+            level: 'advanced'
+        })
+    }
+
+    handleMMAClick = () => {
+        this.setState({
+            style: 'mma'
+        })
+    }
+
+    handleSubmit = () => {
+        console.log('button clicked state=====', this.state)
+        localStorage.setItem("level", this.state.level);
+        sessionStorage.setItem("style", this.state.style);
+        alert('Level and style selected!');
+    }
     
     render() {
+        console.log('state=====', this.state)
         return (
     <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
@@ -26,34 +65,36 @@ class Menu extends Component {
             </div>
         <div className="row justify-content-around">
             <div className="col-4">
-                <button type="button" class="text-danger rounded">Beginner</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleBeginnerClick}>Beginner</button>
             </div>
             <div className="right col-4">
-                <button type="button" class="text-danger rounded">Boxing</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleBoxingClick}>Boxing</button>
             </div>
         </div>
         <br/>
         <div className="row justify-content-around">
             <div className="col-4">
-                <button type="button" class="text-danger rounded">Intermediate</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleIntermediateClick}>Intermediate</button>
             </div>
             <div className="right col-4">
-                <button type="button" class="text-danger rounded">Kickboxing</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleKickBoxingClick}>Kickboxing</button>
             </div>
         </div>
         <br/>
         <div className="row justify-content-around">
             <div className="col-4">
-                <button type="button" class="text-danger rounded">Advanced</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleAdvancedClick}>Advanced</button>
                 <br/>
                 <br/>
             </div>
             <div className="right col-4">
-                <button type="button" class="text-danger rounded">MMA</button>
+                <button type="button" class="text-danger rounded" onClick={this.handleMMAClick}>MMA</button>
             </div>
         </div>
         <div className="container center">
-                <Link to="/Work"><button type="button" className="bg-success text-light rounded">Work</button></Link>
+                <Link to="/Work">
+                <button className="bg-success text-light rounded" onClick={this.handleSubmit}>Work</button>
+                </Link>
         </div>
     </div>
         );
