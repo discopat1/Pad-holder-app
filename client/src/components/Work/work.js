@@ -257,7 +257,16 @@ class Work extends Component {
             <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
         </div>
+        <div class="container">
+            <div class="row">
+                <div className="col-sm-4 text-light">
+                    <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
+                </div>
+            </div>
+        </div>
+        <br></br>
         <div className="container heading">
+            
             <h1 class="display-4">Work!</h1>
             <p class="lead text-danger">Throw your combos as they're called out!</p>
         </div>

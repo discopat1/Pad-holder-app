@@ -220,6 +220,12 @@ const comboSeed = [
         mma: true
     },
     {
+        combo: "low-hook, low-hook, high-hook, high-hook",
+        boxing: true,
+        kickboxing: true,
+        mma: true
+    },
+    {
         combo: "cross, hook, round-kick",
         boxing: false,
         kickboxing: true,

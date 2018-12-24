@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./menu.css"
 
 
@@ -48,9 +47,15 @@ class Menu extends Component {
 
     handleSubmit = () => {
         console.log('button clicked state=====', this.state)
-        localStorage.setItem("level", this.state.level);
-        sessionStorage.setItem("style", this.state.style);
-        alert('Level and style selected!');
+        if(this.state.level === "" || this.state.style === "") {
+            alert('Choose your level and style')
+        } else {
+            localStorage.setItem("level", this.state.level);
+            sessionStorage.setItem("style", this.state.style);
+            alert('Level and style selected!');
+            window.location.href="/Work";
+        }
+        
     }
     
     render() {
@@ -92,9 +97,7 @@ class Menu extends Component {
             </div>
         </div>
         <div className="container center">
-                <Link to="/Work">
                 <button className="bg-success text-light rounded" onClick={this.handleSubmit}>Work</button>
-                </Link>
         </div>
     </div>
         );
