@@ -87,8 +87,8 @@ class Work extends Component {
     getCombo() {
         const style = sessionStorage.getItem('style');
         console.log("style---_-_-_", style);
-        if (this.state.work && style === 'mma') {
-            API.findAll()
+        if (this.state.work && style === 'kickboxing') {
+            API.findKickboxing()
         .then(res => 
             this.setState({ 
                 combo: res.data.combo,
@@ -98,6 +98,15 @@ class Work extends Component {
         this.totalStrikes();
         } else if (this.state.work && style === 'boxing') {
             API.findBoxing()
+        .then(res => 
+            this.setState({ 
+                combo: res.data.combo,
+            }))
+        .catch(err => console.log(err));
+        this.callCombos();
+        this.totalStrikes();
+        } else if (this.state.work && style === 'muaythai') {
+            API.findMuaythai()
         .then(res => 
             this.setState({ 
                 combo: res.data.combo,

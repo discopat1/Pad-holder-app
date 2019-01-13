@@ -1,49 +1,30 @@
 import React, { Component } from "react";
-import "./menu.css"
-
+import "./menu.css";
+import Style from "../MAStyle";
+import Level from "../Level";
 
 class Menu extends Component {
-
-    state = {
-        level: "",
-        style: "",
+    constructor(props) {
+        super(props);
+        this.state = {
+            level: "",
+            style: "",
+        }
+        this.handleStyleChange=this.handleStyleChange.bind(this);
+        this.handleLevelChange=this.handleLevelChange.bind(this);
     }
-
-    handleBeginnerClick = () => {
+    
+    handleStyleChange(styleValue) {
         this.setState({
-            level: 'beginner'
-        })
-    }
+          style: styleValue
+        });
+      }
 
-    handleBoxingClick = () => {
+      handleLevelChange(levelValue) {
         this.setState({
-            style: 'boxing'
-        })
-    }
-
-    handleIntermediateClick = () => {
-        this.setState({
-            level: 'intermediate'
-        })
-    }
-
-    handleKickBoxingClick = () => {
-        this.setState({
-            style: 'kickboxing'
-        })
-    }
-
-    handleAdvancedClick = () => {
-        this.setState({
-            level: 'advanced'
-        })
-    }
-
-    handleMMAClick = () => {
-        this.setState({
-            style: 'mma'
-        })
-    }
+          level: levelValue
+        });
+      }
 
     handleSubmit = () => {
         console.log('button clicked state=====', this.state)
@@ -68,33 +49,9 @@ class Menu extends Component {
                 <h1 class="display-4">Pad Holder!</h1>
                 <p class="lead text-danger">Increase your reaction time as classic fight combinations are called out to you!</p>
             </div>
-        <div className="row justify-content-around">
-            <div className="col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleBeginnerClick}>Beginner</button>
-            </div>
-            <div className="right col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleBoxingClick}>Boxing</button>
-            </div>
-        </div>
-        <br/>
-        <div className="row justify-content-around">
-            <div className="col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleIntermediateClick}>Intermediate</button>
-            </div>
-            <div className="right col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleKickBoxingClick}>Kickboxing</button>
-            </div>
-        </div>
-        <br/>
-        <div className="row justify-content-around">
-            <div className="col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleAdvancedClick}>Advanced</button>
-                <br/>
-                <br/>
-            </div>
-            <div className="right col-4">
-                <button type="button" class="text-danger rounded" onClick={this.handleMMAClick}>MMA</button>
-            </div>
+        <div className="text-light">
+            <Style onStyleChange={this.handleStyleChange} />
+            <Level onLevelChange={this.handleLevelChange} />
         </div>
         <div className="container center">
                 <button className="bg-success text-light rounded" onClick={this.handleSubmit}>Work</button>

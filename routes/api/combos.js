@@ -6,4 +6,10 @@ router.route("/")
 // Route for boxing combos
 router.route("/boxing")
 .get(comboController.findBoxing);
+// Route for kickboxing combos
+router.route("/kickboxing")
+.get(comboController.findKickboxing);
+// Route for Muay thai combos
+router.route("/muaythai")
+.get(comboController.findMuayThai);
 module.exports = router;
