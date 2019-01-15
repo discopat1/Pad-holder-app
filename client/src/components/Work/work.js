@@ -262,8 +262,9 @@ class Work extends Component {
     speak() {
         const msg = new SpeechSynthesisUtterance();
         msg.text = this.state.combo;
-        var voices = speechSynthesis.getVoices()
-        msg.voice = voices[7]
+        var voices = speechSynthesis.getVoices();
+        msg.rate = 1.5;
+        msg.voice = voices[7];
         speechSynthesis.cancel();
         speechSynthesis.speak(msg);
     }
