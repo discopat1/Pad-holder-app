@@ -76,7 +76,15 @@ class Work extends Component {
     callCombos() {
         const arr = this.string_to_array(this.state.combo);
         const length = arr.length;
-        const comboInt = ((length * 0.88) * 1000);
+        let comboInt;
+        const level = localStorage.getItem("level");
+        if(level === 'beginner') {
+            comboInt = ((length * 1.3) * 1000);
+        } else if(level === 'intermediate') {
+            comboInt = ((length * 0.88) * 1000);
+        } else if(level === 'advanced') {
+            comboInt = ((length * 0.5) * 1000);
+        };
         const randInt = Math.round(Math.random() * (3000 - 1000)) + 1000;
         const totalInt = randInt + comboInt;
         this.comboHandle = setTimeout(this.getCombo, totalInt);
@@ -226,6 +234,7 @@ class Work extends Component {
     endSession() {
         console.log("end session");
         clearInterval(this.intervalHandle);
+        alert(`Finished ${this.state.round} Rounds!`);
         window.location.href="/Stats";
     }
     
