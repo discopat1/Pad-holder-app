@@ -30,8 +30,8 @@ class Style extends Component {
                 <input
                 name="style"
                 type="radio"
-                value="boxing"
-                checked={this.state.style === "boxing"}
+                value="Boxing"
+                checked={this.state.style === "Boxing"}
                 onChange={this.handleInputChange}
                 />
                 <label>Boxing</label>
@@ -40,8 +40,8 @@ class Style extends Component {
                 <input
                 name="style"
                 type="radio"
-                value="kickboxing"
-                checked={this.state.style === "kickboxing"}
+                value="Kickboxing"
+                checked={this.state.style === "Kickboxing"}
                 onChange={this.handleInputChange}
                 />
                 <label>Kickboxing</label>
@@ -50,8 +50,8 @@ class Style extends Component {
                 <input
                 name="style"
                 type="radio"
-                value="muaythai"
-                checked={this.state.style === "muaythai"}
+                value="Muay Thai"
+                checked={this.state.style === "Muay Thai"}
                 onChange={this.handleInputChange}
                 />
                 <label>Muay Thai</label>

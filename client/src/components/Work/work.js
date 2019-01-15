@@ -78,11 +78,11 @@ class Work extends Component {
         const length = arr.length;
         let comboInt;
         const level = localStorage.getItem("level");
-        if(level === 'beginner') {
+        if(level === 'Beginner') {
             comboInt = ((length * 1.3) * 1000);
-        } else if(level === 'intermediate') {
+        } else if(level === 'Intermediate') {
             comboInt = ((length * 0.88) * 1000);
-        } else if(level === 'advanced') {
+        } else if(level === 'Advanced') {
             comboInt = ((length * 0.5) * 1000);
         };
         const randInt = Math.round(Math.random() * (3000 - 1000)) + 1000;
@@ -95,7 +95,7 @@ class Work extends Component {
     getCombo() {
         const style = sessionStorage.getItem('style');
         console.log("style---_-_-_", style);
-        if (this.state.work && style === 'kickboxing') {
+        if (this.state.work && style === 'Kickboxing') {
             API.findKickboxing()
         .then(res => 
             this.setState({ 
@@ -104,7 +104,7 @@ class Work extends Component {
         .catch(err => console.log(err));
         this.callCombos();
         this.totalStrikes();
-        } else if (this.state.work && style === 'boxing') {
+        } else if (this.state.work && style === 'Boxing') {
             API.findBoxing()
         .then(res => 
             this.setState({ 
@@ -113,7 +113,7 @@ class Work extends Component {
         .catch(err => console.log(err));
         this.callCombos();
         this.totalStrikes();
-        } else if (this.state.work && style === 'muaythai') {
+        } else if (this.state.work && style === 'Muay Thai') {
             API.findMuaythai()
         .then(res => 
             this.setState({ 
@@ -263,7 +263,7 @@ class Work extends Component {
         const msg = new SpeechSynthesisUtterance();
         msg.text = this.state.combo;
         var voices = speechSynthesis.getVoices();
-        msg.rate = 1.3;
+        msg.rate = 1.28;
         msg.voice = voices[7];
         speechSynthesis.cancel();
         speechSynthesis.speak(msg);
@@ -286,7 +286,8 @@ class Work extends Component {
         <br></br>
         <div className="container heading">
             
-            <h1 class="display-4">Work!</h1>
+            <h1 class="display-4">{sessionStorage.getItem('style')}</h1>
+            <h1 class="display-4">{localStorage.getItem('level')}</h1>
             <p class="lead text-danger">Throw your combos as they're called out!</p>
         </div>
         <div class="container">

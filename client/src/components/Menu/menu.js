@@ -33,7 +33,7 @@ class Menu extends Component {
         } else {
             localStorage.setItem("level", this.state.level);
             sessionStorage.setItem("style", this.state.style);
-            alert('Level and style selected!');
+            alert(`${this.state.style} - ${this.state.level} selected!`);
             window.location.href="/Work";
         }
         
@@ -48,11 +48,13 @@ class Menu extends Component {
         <div class="container heading">
                 <h1 class="display-4">Pad Holder!</h1>
                 <p class="lead text-danger">Increase your reaction time as classic fight combinations are called out to you!</p>
-            </div>
-        <div className="text-light">
-            <Style onStyleChange={this.handleStyleChange} />
-            <Level onLevelChange={this.handleLevelChange} />
         </div>
+            <div className="text-light">
+                <Style onStyleChange={this.handleStyleChange} />
+            </div>
+            <div className="text-light">
+                <Level onLevelChange={this.handleLevelChange} />
+            </div>
         <div className="container center">
                 <button className="bg-success text-light rounded" onClick={this.handleSubmit}>Work</button>
         </div>

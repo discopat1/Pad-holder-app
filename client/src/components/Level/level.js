@@ -30,8 +30,8 @@ class Level extends Component {
                 <input
                 name="level"
                 type="radio"
-                value="beginner"
-                checked={this.state.level === "beginner"}
+                value="Beginner"
+                checked={this.state.level === "Beginner"}
                 onChange={this.handleInputChange}
                 />
                 <label>Beginner</label>
@@ -40,8 +40,8 @@ class Level extends Component {
                 <input
                 name="level"
                 type="radio"
-                value="intermediate"
-                checked={this.state.level === "intermediate"}
+                value="Intermediate"
+                checked={this.state.level === "Intermediate"}
                 onChange={this.handleInputChange}
                 />
                 <label>Intermediate</label>
@@ -50,8 +50,8 @@ class Level extends Component {
                 <input
                 name="level"
                 type="radio"
-                value="advanced"
-                checked={this.state.level === "advanced"}
+                value="Advanced"
+                checked={this.state.level === "Advanced"}
                 onChange={this.handleInputChange}
                 />
                 <label>Advanced</label>
