@@ -5,7 +5,8 @@ import "./stats.css";
 
 class Stats extends Component {
     state = {
-
+        strikes: sessionStorage.getItem('strikes'),
+        rounds: sessionStorage.getItem('rounds')
     }
     render() {
         return (
@@ -22,7 +23,7 @@ class Stats extends Component {
                             <div className="card-body">
                                 <h5 class="card-title">Total Rounds:</h5>
                                 <br/>
-                                <p class="card-text">5</p>
+                                <p class="card-text">{this.state.rounds}</p>
                             </div>
                         </div>
                     </div>
@@ -31,20 +32,14 @@ class Stats extends Component {
                             <div className="card-body">
                                 <h5 class="card-title">Total Strikes:</h5>
                                 <br/>
-                                <p class="card-text">568</p>
+                                <p class="card-text">{this.state.strikes}</p>
                             </div>
                         </div>
                     </div>
                     <br/>
                     <div class="container">
                         <div class="row">
-                            <div className="time col-sm-4 text-light">
-                                <h2>Total Time:</h2>
-                            </div>
-                        </div>
-                        <div class="row">
                         <div className="time col-sm-4 text-light">
-                            <h3>36:23</h3>
                             <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
                         </div>
                         </div>

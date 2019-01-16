@@ -28,6 +28,7 @@ class Work extends Component {
    this.display = this.display.bind(this);
    this.getCombo = this.getCombo.bind(this);
    this.pause = this.pause.bind(this);
+   this.endSession = this.endSession.bind(this);
    this.bell = new Audio(Bell);
    this.clapper = new Audio(Clapper);
    }
@@ -232,9 +233,11 @@ class Work extends Component {
 
     // End session
     endSession() {
-        console.log("end session");
         clearInterval(this.intervalHandle);
+        clearInterval(this.comboHandle);
         alert(`Finished ${this.state.round} Rounds!`);
+        sessionStorage.setItem("strikes", this.state.strikes);
+        sessionStorage.setItem('rounds', this.state.round);
         window.location.href="/Stats";
     }
     
@@ -273,72 +276,66 @@ class Work extends Component {
         console.log("storagestyle", sessionStorage.getItem('style'));
         console.log('voices===', window.speechSynthesis.getVoices())
         return (
-            <div class="bg-dark">
-        <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div className="col-sm-4 text-light">
-                    <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
-                </div>
+        <div class="bg-dark">
+            <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
             </div>
-        </div>
-        <br></br>
-        <div className="container heading">
-            
-            <h1 class="display-4">{sessionStorage.getItem('style')}</h1>
-            <h1 class="display-4">{localStorage.getItem('level')}</h1>
-            <p class="lead text-danger">Throw your combos as they're called out!</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div className="round col-sm-4 text-light">
-                    <button className="bg-success text-light rounded" onClick={this.startCountDown}>Start</button>
-                </div>
-            </div>
-        </div>
-        <div class="container"> 
-            <div class="row">
-                <div className="round col-sm-4 text-light">
-                    <button className="bg-danger text-light rounded" onClick={this.pause}>Pause</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div className="col-6">
-                <div className="card card1">
-                    <div className="card-body">
-                        <h5 class="card-title">Current Combo</h5>
-                        <p class="card-text">{this.state.combo}</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-6">
-                <div className="card card2">
-                    <div className="card-body">
-                        <h5 class="card-title">Total Strikes:</h5>
-                        <br/>
-                        <p class="card-text">{this.displayPositiveStrikes()}</p>
-                    </div>
-                </div>
-            </div>
-            <br/>
             <div class="container">
                 <div class="row">
-                    <div className="round col-sm-4 text-light">
-                        <h3>{this.display()}</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div className="round col-sm-4 text-light">
-                        <h2>{this.clockMinutes()}:{this.state.seconds}</h2>
-                        <Link to="/Stats"><button className="bg-danger text-light rounded">Finish</button></Link>
+                    <div className="col-sm-4 text-light">
+                        <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
                     </div>
                 </div>
             </div>
+            <br></br>
+            <div className="container heading">
+                <h1 class="display-4">{sessionStorage.getItem('style')}</h1>
+                <h1 class="display-4">{localStorage.getItem('level')}</h1>
+                <p class="lead text-danger">Throw your combos as they're called out!</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div className="round col-sm-2 text-light">
+                        <button className="bg-success text-light rounded" onClick={this.startCountDown}>Start</button>
+                    </div>
+                    <div className="round col-sm-2 text-light">
+                        <button className="bg-danger text-light rounded" onClick={this.pause}>Pause</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div className="col-6">
+                    <div className="card card4">
+                        <div className="card-body">
+                            <h5 class="card-title">Total Strikes:</h5>
+                            <br/>
+                            <p class="card-text">{this.displayPositiveStrikes()}</p>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div className="round col-sm-4 text-light">
+                            <h3>{this.display()}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div className="round col-sm-4 text-light">
+                            <h2>{this.clockMinutes()}:{this.state.seconds}</h2>
+                            <button className="bg-danger text-light rounded" onClick={this.endSession}>Finish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div className="col-6">
+                    <div className="card3 bg-dark text-dark">
+                        <div className="card-body">
+                            <h5 class="card-title">Current Combo</h5>
+                            <p class="card-text">{this.state.combo}</p>
+                        </div>
+                    </div>
+                </div>
         </div>
-    </div>
         )
     }
 }

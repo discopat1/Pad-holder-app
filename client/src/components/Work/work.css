@@ -1,17 +1,17 @@
 
-.card1 {
-    width: 10rem;
-    height: 13rem;
+.card3 {
     position: relative;
-    left: 25px;
-    top: 10px;
+    left: 179px;
+    bottom: 10px;
+
 }
 
-.card2 {
-    width: 10rem;
-    height: 13rem;
+.card4 {
+    width: 15rem;
+    height: 9rem;
     position: relative;
     top: 10px;
+    left: 144px;
 }
 
 .round {
