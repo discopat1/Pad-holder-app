@@ -45,7 +45,7 @@ class Menu extends Component {
     <div class="bg-dark">
         <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
         </div>
-        <div class="container heading">
+        <div className="container heading">
                 <h1 class="display-4">Pad Holder!</h1>
                 <p class="lead text-danger">Increase your reaction time as classic fight combinations are called out to you!</p>
         </div>

@@ -13,13 +13,13 @@ class Stats extends Component {
             <div class="bg-dark">
                 <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
                 </div>
-                <div class="container heading">
+                <div className="container heading">
                     <h1 class="display-4">Stats!</h1>
                     <p class="lead text-danger">Total Results:</p>
                 </div>
-                <div class="row">
-                    <div className="col-6">
-                        <div className="card card1">
+                <div className="">
+                    <div className="">
+                        <div className="card card1 container center">
                             <div className="card-body">
                                 <h5 class="card-title">Total Rounds:</h5>
                                 <br/>
@@ -27,8 +27,8 @@ class Stats extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className="card card2">
+                    <div className="">
+                        <div className="card card1 container center">
                             <div className="card-body">
                                 <h5 class="card-title">Total Strikes:</h5>
                                 <br/>
@@ -37,9 +37,9 @@ class Stats extends Component {
                         </div>
                     </div>
                     <br/>
-                    <div class="container">
-                        <div class="row">
-                        <div className="time col-sm-4 text-light">
+                    <div class="container center">
+                        <div class="">
+                        <div className="text-light">
                             <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
                         </div>
                         </div>

@@ -281,8 +281,8 @@ class Work extends Component {
             </div>
             <div class="container">
                 <div class="row">
-                    <div className="col-sm-4 text-light">
-                        <Link to="/"><button className="bg-primary text-light rounded">Home</button></Link>
+                    <div className="container text-light center">
+                        <Link to="/"><button className="bg-primary text-light rounded center" id="homebtn">Home</button></Link>
                     </div>
                 </div>
             </div>
@@ -294,17 +294,14 @@ class Work extends Component {
             </div>
             <div class="container">
                 <div class="row">
-                    <div className="round col-sm-2 text-light">
-                        <button className="bg-success text-light rounded" onClick={this.startCountDown}>Start</button>
-                    </div>
-                    <div className="round col-sm-2 text-light">
-                        <button className="bg-danger text-light rounded" onClick={this.pause}>Pause</button>
+                    <div className="container text-light center">
+                        <button className="bg-success text-light rounded" id="startbtn" onClick={this.startCountDown}>Start</button>
+                        <button className="bg-danger text-light rounded" id="pausebtn" onClick={this.pause}>Pause</button>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div className="col-6">
-                    <div className="card card4">
+                <div className="container center">
+                    <div className="card card4 container center">
                         <div className="card-body">
                             <h5 class="card-title">Total Strikes:</h5>
                             <br/>
@@ -313,20 +310,17 @@ class Work extends Component {
                     </div>
                 </div>
                 <br/>
-                <div class="container">
-                    <div class="row">
-                        <div className="round col-sm-4 text-light">
+                <div className="container center">
+                    <div class="">
+                        <div className="round text-light">
                             <h3>{this.display()}</h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div className="round col-sm-4 text-light">
-                            <h2>{this.clockMinutes()}:{this.state.seconds}</h2>
+                        <div className="round text-light">
+                            <h1>{this.clockMinutes()}:{this.state.seconds}</h1>
                             <button className="bg-danger text-light rounded" onClick={this.endSession}>Finish</button>
                         </div>
-                    </div>
                 </div>
-            </div>
                 <div className="col-6">
                     <div className="card3 bg-dark text-dark">
                         <div className="card-body">

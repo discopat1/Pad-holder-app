@@ -9,14 +9,18 @@
 .card4 {
     width: 15rem;
     height: 9rem;
-    position: relative;
-    top: 10px;
-    left: 144px;
 }
 
 .round {
-    margin-left: 25px;
+    /* margin-left: 25px; */
     margin-top: 55px;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 10px;
 }
+
+#startbtn {
+    margin-right: 10px;
+}
+#pausebtn {
+    margin-left: 10px;
+} 

@@ -1,19 +1,5 @@
 .card1 {
-    width: 10rem;
-    position: relative;
-    left: 25px;
-    top: 10px;
+    width: 22rem;
 }
 
-.card2 {
-    width: 10rem;
-    position: relative;
-    top: 10px;
-}
 
-.time {
-    margin-left: 25px;
-    margin-top: 55px;
-    text-align: center;
-    margin-bottom: 10px;
-}
