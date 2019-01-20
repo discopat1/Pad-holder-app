@@ -107,25 +107,25 @@ const comboSeed = [
     },
     {
         combo: "Jab, rear-elbow",
-        boxing: true,
+        boxing: false,
         kickboxing: false,
         muaythai: true
     },
     {
         combo: "Jab, lead-elbow",
-        boxing: true,
+        boxing: false,
         kickboxing: false,
         muaythai: true
     },
     {
         combo: "Jab, lead-elbow, rear-elbow",
-        boxing: true,
+        boxing: false,
         kickboxing: false,
         muaythai: true
     },
     {
         combo: "Jab, lead-elbow, rear-elbow, lead-knee",
-        boxing: true,
+        boxing: false,
         kickboxing: false,
         muaythai: true
     },
@@ -251,7 +251,7 @@ const comboSeed = [
     },
     {
         combo: "double jab, cross, lead-knee",
-        boxing: true,
+        boxing: false,
         kickboxing: true,
         muaythai: true
     },
