@@ -167,8 +167,13 @@ class Work extends Component {
     // Break functions
     break() {
             this.intervalHandle = setInterval(this.breakTick, 1000);
-            let time = this.state.breakMinutes;
-            this.secondNumber = time * 60;
+            if(sessionStorage.getItem('breakTime') === '60') {
+                let time = this.state.breakMinutes;
+                this.secondNumber = time * 60;
+            } else {
+                this.secondNumber = 30;
+            }
+            
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);

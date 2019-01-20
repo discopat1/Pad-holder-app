@@ -10,12 +10,14 @@ class Menu extends Component {
             level: "",
             style: "",
             rounds: "",
-            roundTime: ""
+            roundTime: "",
+            breakTime: ""
         }
         this.handleStyleChange=this.handleStyleChange.bind(this);
         this.handleLevelChange=this.handleLevelChange.bind(this);
         this.handleRoundChange=this.handleRoundChange.bind(this);
         this.handleTimeChange=this.handleTimeChange.bind(this);
+        this.handleBreakChange=this.handleBreakChange.bind(this);
     }
     
     handleStyleChange(styleValue) {
@@ -44,15 +46,23 @@ class Menu extends Component {
         });
     }
 
+    handleBreakChange(event) {
+        let value = event.target.value;
+        this.setState({
+          breakTime: value
+        });
+    }
+
     handleSubmit = () => {
         console.log('button clicked state=====', this.state)
-        if(this.state.level === "" || this.state.style === "" || this.state.roundTime === "" || this.state.rounds === "") {
+        if(this.state.level === "" || this.state.style === "" || this.state.roundTime === "" || this.state.rounds === "" || this.state.breakTime === "") {
             alert('Choose all options')
         } else {
             localStorage.setItem("level", this.state.level);
             sessionStorage.setItem("style", this.state.style);
             sessionStorage.setItem("rounds", this.state.rounds);
             sessionStorage.setItem("roundTime", this.state.roundTime);
+            sessionStorage.setItem("breakTime", this.state.breakTime);
             alert(`${this.state.style} - ${this.state.level} selected!`);
             window.location.href="/Work";
         }
@@ -78,7 +88,7 @@ class Menu extends Component {
             <form>
             <div class="form-group text-danger">
                 <label for="exampleFormControlSelect1">Rounds</label>
-                <select class="form-control-lg" id="exampleFormControlSelect1" onChange={this.handleRoundChange}>
+                <select className="form-control-lg dropdowns" id="exampleFormControlSelect1" onChange={this.handleRoundChange}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -94,13 +104,20 @@ class Menu extends Component {
                 </select>
             </div>
             <div class="form-group text-danger">
-                <label for="exampleFormControlSelect2">Round Time (Minutes)</label>
-                <select class="form-control-lg" id="exampleFormControlSelect2" onChange={this.handleTimeChange}>
+                <label for="exampleFormControlSelect2 ">Round Time (Minutes)</label>
+                <select className="form-control-lg dropdowns" id="exampleFormControlSelect2" onChange={this.handleTimeChange}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
+                </select>
+            </div>
+            <div class="form-group text-danger">
+                <label for="exampleFormControlSelect3">Break Time (Seconds)</label>
+                <select className="form-control-lg dropdowns" id="exampleFormControlSelect3" onChange={this.handleBreakChange}>
+                <option>30</option>
+                <option>60</option>
                 </select>
             </div>
             </form>
