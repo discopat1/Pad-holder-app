@@ -89,6 +89,7 @@ class Menu extends Component {
             <div class="form-group text-danger">
                 <label for="exampleFormControlSelect1">Rounds</label>
                 <select className="form-control-lg dropdowns" id="exampleFormControlSelect1" onChange={this.handleRoundChange}>
+                <option></option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -106,6 +107,7 @@ class Menu extends Component {
             <div class="form-group text-danger">
                 <label for="exampleFormControlSelect2 ">Round Time (Minutes)</label>
                 <select className="form-control-lg dropdowns" id="exampleFormControlSelect2" onChange={this.handleTimeChange}>
+                <option></option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -116,6 +118,7 @@ class Menu extends Component {
             <div class="form-group text-danger">
                 <label for="exampleFormControlSelect3">Break Time (Seconds)</label>
                 <select className="form-control-lg dropdowns" id="exampleFormControlSelect3" onChange={this.handleBreakChange}>
+                <option></option>
                 <option>30</option>
                 <option>60</option>
                 </select>
