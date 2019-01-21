@@ -26,7 +26,7 @@ class Level extends Component {
         console.log('state=====', this.state)
         return (
             <form>
-                <h3>Level</h3>
+                <h3>Level <span className="small">(Determines the time between combos)</span></h3> 
                 <input
                 name="level"
                 type="radio"

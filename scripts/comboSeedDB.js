@@ -112,6 +112,30 @@ const comboSeed = [
         muaythai: true
     },
     {
+        combo: "Jab, rear-elbow, uppercut",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "Jab, rear-elbow, uppercut, round-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "Jab, rear-elbow, lead-knee",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "Jab, rear-elbow, rear-knee",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
         combo: "Jab, lead-elbow",
         boxing: false,
         kickboxing: false,
@@ -130,13 +154,49 @@ const comboSeed = [
         muaythai: true
     },
     {
+        combo: "Jab, lead-elbow, rear-elbow, lead-knee, round-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "Jab, lead-elbow, cross",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "Jab, lead-elbow, cross, switch-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
         combo: "Jab, lead-hook",
         boxing: true,
         kickboxing: true,
         muaythai: true
     },
     {
+        combo: "Jab, lead-hook, spinning hook-kick",
+        boxing: false,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
+        combo: "Jab, lead-hook, spinning back-kick",
+        boxing: false,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
         combo: "Jab, lead-hook, cross",
+        boxing: true,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
+        combo: "Jab, lead-hook, cross, hook",
         boxing: true,
         kickboxing: true,
         muaythai: true
@@ -340,6 +400,12 @@ const comboSeed = [
         muaythai: true
     },
     {
+        combo: "teep, round-kick",
+        boxing: false,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
         combo: "cross, hook, cross, switch-kick",
         boxing: false,
         kickboxing: true,
@@ -385,6 +451,42 @@ const comboSeed = [
         combo: "round-kick, rear-knee, round-kick",
         boxing: false,
         kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "round-kick, round-kick",
+        boxing: false,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
+        combo: "lead-hook, cross",
+        boxing: true,
+        kickboxing: true,
+        muaythai: true
+    },
+    {
+        combo: "lead-hook, cross, rear-elbow",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "lead-hook, cross, rear-elbow, lead-knee",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "lead-hook, lead-elbow",
+        boxing: false,
+        kickboxing: false,
+        muaythai: true
+    },
+    {
+        combo: "lead-hook, cross, switch-kick",
+        boxing: false,
+        kickboxing: true,
         muaythai: true
     }
 ];

@@ -44,7 +44,7 @@ class Style extends Component {
                 checked={this.state.style === "Kickboxing"}
                 onChange={this.handleInputChange}
                 />
-                <label>Kickboxing</label>
+                <label>Kickboxing <span className="small">(Sans Knees and Elbows)</span></label>
                 <br />
 
                 <input
@@ -54,7 +54,7 @@ class Style extends Component {
                 checked={this.state.style === "Muay Thai"}
                 onChange={this.handleInputChange}
                 />
-                <label>Muay Thai</label>
+                <label>Muay Thai <span className="small">(Knees and Elbows)</span></label>
             </form>
         )
     };

@@ -29,6 +29,7 @@ class Work extends Component {
    this.getCombo = this.getCombo.bind(this);
    this.pause = this.pause.bind(this);
    this.endSession = this.endSession.bind(this);
+   this.goHome = this.goHome.bind(this);
    this.bell = new Audio(Bell);
    this.clapper = new Audio(Clapper);
    }
@@ -245,7 +246,12 @@ class Work extends Component {
         sessionStorage.setItem('rounds', this.state.round);
         window.location.href="/Stats";
     }
-    
+
+    // Reset with home button
+    goHome() {
+        clearInterval(this.intervalHandle);
+        clearInterval(this.comboHandle);
+    }
 
     // Add strikes based on combos called
     totalStrikes() {
@@ -288,7 +294,7 @@ class Work extends Component {
             <div class="container">
                 <div class="row">
                     <div className="container text-light center">
-                        <Link to="/"><button className="bg-primary text-light rounded center" id="homebtn">Home</button></Link>
+                        <Link to="/"><button className="bg-primary text-light rounded center" id="homebtn" onClick={this.goHome}>Home</button></Link>
                     </div>
                 </div>
             </div>
