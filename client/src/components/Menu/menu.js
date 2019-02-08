@@ -77,7 +77,7 @@ class Menu extends Component {
         </div>
         <div className="container heading">
                 <h1 class="display-4">Pad Holder!</h1>
-                <p class="lead text-danger">Increase your reaction time as classic fight combinations are called out to you!</p>
+                <p class="lead text-danger">Improve your reaction time as classic fight combinations are called out to you!</p>
         </div>
             <div className="text-light">
                 <Style onStyleChange={this.handleStyleChange} />

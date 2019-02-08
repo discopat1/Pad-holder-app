@@ -156,10 +156,11 @@ class Work extends Component {
             this.clapSound();
         }
         if (min === 0 & sec === 0) {
-        clearInterval(this.intervalHandle);
+            clearInterval(this.intervalHandle);
+            this.bellRing();
             this.toggle();
             this.setState({
-                roundMinutes: '3'
+                roundMinutes: sessionStorage.getItem('roundTime')
             })
         }
             this.secondNumber--;
@@ -200,7 +201,7 @@ class Work extends Component {
             this.clapSound();
         }
         if (min === 0 & sec === 0) {
-        clearInterval(this.intervalHandle);
+            clearInterval(this.intervalHandle);
             this.roundNumber++;
             this.round();
             this.bellRing();
@@ -228,11 +229,10 @@ class Work extends Component {
     }
     // End session after last round or go to break in between rounds
     toggle() {
-        if (this.roundNumber === sessionStorage.getItem('rounds')) {
-            this.endSession()
+        if (this.state.round === sessionStorage.getItem('rounds')) {
+            this.endSession();
         }
         else {
-            this.bellRing();
             this.break();
         }
     }
@@ -283,10 +283,12 @@ class Work extends Component {
         speechSynthesis.speak(msg);
     }
     render() {
-        console.log("storage level====", localStorage.getItem('level'));
-        console.log("storagestyle", sessionStorage.getItem('style'));
-        console.log('voices===', window.speechSynthesis.getVoices());
-        console.log('round time===', this.state.roundMinutes)
+        // console.log("storage level====", localStorage.getItem('level'));
+        // console.log("storagestyle", sessionStorage.getItem('style'));
+        // console.log('voices===', window.speechSynthesis.getVoices());
+        // console.log('round time===', this.state.roundMinutes);
+        console.log('state round=-=-=-=', this.state.round);
+        console.log('sessuin rounds====', sessionStorage.getItem('rounds'));
         return (
         <div class="bg-dark">
             <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
