@@ -13,7 +13,7 @@ class Work extends Component {
      seconds: '00', 
      roundMinutes: sessionStorage.getItem('roundTime'),
      breakMinutes: '1',
-     round: '1',
+     round: 1,
      work: true,
      combo: '',
      strikes: -1,
@@ -229,6 +229,8 @@ class Work extends Component {
     }
     // End session after last round or go to break in between rounds
     toggle() {
+        console.log('state round=-=-=-=', this.state.round);
+        console.log('hello toggle');
         if (this.state.round === sessionStorage.getItem('rounds')) {
             this.endSession();
         }
