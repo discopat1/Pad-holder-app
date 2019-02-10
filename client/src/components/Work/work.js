@@ -14,6 +14,7 @@ class Work extends Component {
      roundMinutes: sessionStorage.getItem('roundTime'),
      breakMinutes: '1',
      round: 1,
+     maxRounds: sessionStorage.getItem('rounds'),
      work: true,
      combo: '',
      strikes: -1,
@@ -214,7 +215,7 @@ class Work extends Component {
     // Displays Round or Break
     display() {
        if (this.state.work === true) {
-           return `Round ${this.state.round} of ${sessionStorage.getItem('rounds')}`;
+           return `Round ${this.state.round} of ${this.state.maxRounds}`;
        } else {
             return 'Break';
        }
@@ -229,9 +230,11 @@ class Work extends Component {
     }
     // End session after last round or go to break in between rounds
     toggle() {
-        console.log('state round=-=-=-=', this.state.round);
+        const maxRounds = this.state.maxRounds;
+        console.log('current round=-=-=-=', this.state.round);
+        console.log('max rounds-=-=-=-=-', this.state.maxRounds);
         console.log('hello toggle');
-        if (this.state.round === sessionStorage.getItem('rounds')) {
+        if (this.state.round == maxRounds) {
             this.endSession();
         }
         else {
@@ -279,18 +282,24 @@ class Work extends Component {
         const msg = new SpeechSynthesisUtterance();
         msg.text = this.state.combo;
         var voices = speechSynthesis.getVoices();
-        msg.rate = 1.25;
         msg.voice = voices[7];
         speechSynthesis.cancel();
         speechSynthesis.speak(msg);
+        const level = localStorage.getItem("level");
+        if(level === 'Beginner') {
+            msg.rate = 1;
+        } else if(level === 'Intermediate') {
+            msg.rate = 1.19;
+        } else if(level === 'Advanced') {
+            msg.rate = 1.24;
+        };
     }
     render() {
         // console.log("storage level====", localStorage.getItem('level'));
         // console.log("storagestyle", sessionStorage.getItem('style'));
         // console.log('voices===', window.speechSynthesis.getVoices());
         // console.log('round time===', this.state.roundMinutes);
-        console.log('state round=-=-=-=', this.state.round);
-        console.log('sessuin rounds====', sessionStorage.getItem('rounds'));
+        
         return (
         <div class="bg-dark">
             <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
