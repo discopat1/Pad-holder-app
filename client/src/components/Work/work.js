@@ -125,6 +125,15 @@ class Work extends Component {
         .catch(err => console.log(err));
         this.callCombos();
         this.totalStrikes();
+        } else if (this.state.work && style === 'MMA') {
+            API.findMma()
+        .then(res => 
+            this.setState({ 
+                combo: res.data.combo,
+            }))
+        .catch(err => console.log(err));
+        this.callCombos();
+        this.totalStrikes();
         }
         else {
             this.setState({ combo: 'Break' })
@@ -277,7 +286,7 @@ class Work extends Component {
         }
     }
 
-    // speech function?
+    // speech function
     speak() {
         const msg = new SpeechSynthesisUtterance();
         msg.text = this.state.combo;
@@ -294,6 +303,12 @@ class Work extends Component {
             msg.rate = 1.24;
         };
     }
+
+    // speech volume
+    volume() {
+        
+    }
+
     render() {
         // console.log("storage level====", localStorage.getItem('level'));
         // console.log("storagestyle", sessionStorage.getItem('style'));
@@ -334,7 +349,6 @@ class Work extends Component {
                         </div>
                     </div>
                 </div>
-                <br/>
                 <div className="container center">
                     <div class="">
                         <div className="round text-light">
@@ -343,6 +357,7 @@ class Work extends Component {
                     </div>
                         <div className="round text-light">
                             <h1>{this.clockMinutes()}:{this.state.seconds}</h1>
+                            <br></br>
                             <button className="bg-danger text-light rounded" onClick={this.endSession}>Finish</button>
                         </div>
                 </div>

@@ -12,4 +12,7 @@ router.route("/kickboxing")
 // Route for Muay thai combos
 router.route("/muaythai")
 .get(comboController.findMuayThai);
+// Route for MMA combos
+router.route('/mma')
+.get(comboController.findMma);
 module.exports = router;

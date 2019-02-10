@@ -5,7 +5,8 @@ const comboListSchema = new Schema({
   combo: { type: String, required: true },
   boxing: { type: Boolean, required: true },
   kickboxing: { type: Boolean, required: true },
-  muaythai: { type: Boolean, required: true }
+  muaythai: { type: Boolean, required: true },
+  mma: {type: Boolean, required: true }
 });
 
 

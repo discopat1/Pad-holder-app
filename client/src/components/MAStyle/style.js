@@ -55,6 +55,16 @@ class Style extends Component {
                 onChange={this.handleInputChange}
                 />
                 <label>Muay Thai <span className="small">(Knees and Elbows)</span></label>
+                <br />
+
+                <input
+                name="style"
+                type="radio"
+                value="MMA"
+                checked={this.state.style === "MMA"}
+                onChange={this.handleInputChange}
+                />
+                <label>MMA</label>
             </form>
         )
     };

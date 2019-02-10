@@ -13,4 +13,7 @@ export default {
     findMuaythai: function() {
         return axios.get("/api/combos/muaythai");
     },
+    findMma: function() {
+        return axios.get("/api/combos/mma");
+    },
 }
