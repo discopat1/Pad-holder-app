@@ -59,6 +59,13 @@ const comboSeed = [
         mma: true
     },
     {
+        combo: "Sprawl, Round-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
+        mma: true
+    },
+    {
         combo: "Switch-kick",
         boxing: false,
         kickboxing: true,
@@ -157,6 +164,13 @@ const comboSeed = [
         mma: true
     },
     {
+        combo: "Jab, rear-elbow, uppercut, shoot",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
+        mma: true
+    },
+    {
         combo: "Jab, shoot",
         boxing: false,
         kickboxing: false,
@@ -230,7 +244,8 @@ const comboSeed = [
         combo: "Jab, lead-hook",
         boxing: true,
         kickboxing: true,
-        muaythai: true
+        muaythai: true,
+        mma: true
     },
     {
         combo: "Jab, lead-hook, spinning hook-kick",
@@ -272,6 +287,13 @@ const comboSeed = [
         boxing: true,
         kickboxing: true,
         muaythai: true,
+        mma: true
+    },
+    {
+        combo: "Sprawl, Jab, cross, hook",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
         mma: true
     },
     {
@@ -317,10 +339,24 @@ const comboSeed = [
         mma: true
     },
     {
+        combo: "Sprawl, Jab, cross, round-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
+        mma: true
+    },
+    {
         combo: "Jab, cross, switch-kick",
         boxing: false,
         kickboxing: true,
         muaythai: true,
+        mma: true
+    },
+    {
+        combo: "Sprawl, Jab, cross, switch-kick",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
         mma: true
     },
     {
@@ -370,6 +406,13 @@ const comboSeed = [
         boxing: true,
         kickboxing: true,
         muaythai: true,
+        mma: true
+    },
+    {
+        combo: "Jab, overhand, sprawl",
+        boxing: false,
+        kickboxing: false,
+        muaythai: false,
         mma: true
     },
     {
