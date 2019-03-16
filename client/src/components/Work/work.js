@@ -68,11 +68,10 @@ class Work extends Component {
     pause() {
         clearInterval(this.intervalHandle);
         clearInterval(this.comboHandle);
-        if (this.state.clockRunning) {
+        this.state.clockRunning ?
             this.setState({ clockRunning: false })
-        } else {
+        :
             this.setState({ clockRunning: true })
-        }
     }
 
     // Combo random timer
@@ -81,13 +80,10 @@ class Work extends Component {
         const length = arr.length;
         let comboInt;
         const level = localStorage.getItem("level");
-        if(level === 'Beginner') {
-            comboInt = ((length * 1.3) * 1000);
-        } else if(level === 'Intermediate') {
-            comboInt = ((length * 0.88) * 1000);
-        } else if(level === 'Advanced') {
-            comboInt = ((length * 0.5) * 1000);
-        };
+          level === 'Beginner' ? comboInt = ((length * 1.3) * 1000)
+        : level === 'Intermediate' ? comboInt = ((length * 0.88) * 1000)
+        : level === 'Advanced' ? comboInt = ((length * 0.5) * 1000)
+        : comboInt = 1000
         const randInt = Math.round(Math.random() * (3000 - 1000)) + 1000;
         const totalInt = randInt + comboInt;
         this.comboHandle = setTimeout(this.getCombo, totalInt);
@@ -223,19 +219,11 @@ class Work extends Component {
     }
     // Displays Round or Break
     display() {
-       if (this.state.work === true) {
-           return `Round ${this.state.round} of ${this.state.maxRounds}`;
-       } else {
-            return 'Break';
-       }
+       return this.state.work === true ? `Round ${this.state.round} of ${this.state.maxRounds}`: 'Break';
     }
     // Decides Round or break for minutes
     clockMinutes() {
-        if (this.state.work === true) {
-            return this.state.roundMinutes;
-        } else {
-            return this.state.breakMinutes;
-        }
+        return this.state.work === true ? this.state.roundMinutes : this.state.breakMinutes;
     }
     // End session after last round or go to break in between rounds
     toggle() {

@@ -54,19 +54,14 @@ class Menu extends Component {
     }
 
     handleSubmit = () => {
-        console.log('button clicked state=====', this.state)
-        if(this.state.level === "" || this.state.style === "" || this.state.roundTime === "" || this.state.rounds === "" || this.state.breakTime === "") {
-            alert('Choose all options')
-        } else {
-            localStorage.setItem("level", this.state.level);
+        (this.state.level === "" || this.state.style === "" || this.state.roundTime === "" || this.state.rounds === "" || this.state.breakTime === "") ? alert('Choose all options')
+          : localStorage.setItem("level", this.state.level);
             sessionStorage.setItem("style", this.state.style);
             sessionStorage.setItem("rounds", this.state.rounds);
             sessionStorage.setItem("roundTime", this.state.roundTime);
             sessionStorage.setItem("breakTime", this.state.breakTime);
             alert(`${this.state.style} - ${this.state.level} selected!`);
             window.location.href="/Work";
-        }
-        
     }
     
     render() {
