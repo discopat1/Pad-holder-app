@@ -228,15 +228,8 @@ class Work extends Component {
     // End session after last round or go to break in between rounds
     toggle() {
         const maxRounds = this.state.maxRounds;
-        console.log('current round=-=-=-=', this.state.round);
-        console.log('max rounds-=-=-=-=-', this.state.maxRounds);
-        console.log('hello toggle');
-        if (this.state.round == maxRounds) {
-            this.endSession();
-        }
-        else {
-            this.break();
-        }
+        // eslint-disable-next-line
+            this.state.round == maxRounds ? this.endSession() : this.break()
     }
 
     // End session
@@ -283,13 +276,10 @@ class Work extends Component {
         speechSynthesis.cancel();
         speechSynthesis.speak(msg);
         const level = localStorage.getItem("level");
-        if(level === 'Beginner') {
-            msg.rate = 1;
-        } else if(level === 'Intermediate') {
-            msg.rate = 1.19;
-        } else if(level === 'Advanced') {
-            msg.rate = 1.24;
-        };
+            level === 'Beginner' ? msg.rate = 1
+        :   level === 'Intermediate' ? msg.rate = 1.19
+        :   level === 'Advanced' ? msg.rate = 1.24
+        :   msg.rate = 1;
     }
 
     // speech volume
