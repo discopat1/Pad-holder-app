@@ -47,7 +47,9 @@ class Work extends Component {
     // Starts timer
     startCountDown() {
         this.round();
-        this.roundNumber = 1;
+        if(this.state.round === 1) {
+            this.roundNumber = 1;
+        }
         this.setState({
             clockRunning: true
         });
