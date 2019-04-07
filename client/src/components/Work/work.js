@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import "./work.css";
 import API from "../utils/API";
-import Bell from "../Sounds/bell.m4a"
-import Clapper from "../Sounds/clapper.m4a"
+import Bell from "../Sounds/bell.m4a";
+import Clapper from "../Sounds/clapper.m4a";
+import Silent from "../Sounds/silent.m4a";
 
 // test
 class Work extends Component {
@@ -33,7 +35,10 @@ class Work extends Component {
    this.goHome = this.goHome.bind(this);
    this.bell = new Audio(Bell);
    this.clapper = new Audio(Clapper);
+   this.silent = new Audio(Silent);
    }
+
+    
 
     // Bell
     bellRing() {
@@ -42,6 +47,10 @@ class Work extends Component {
     // Clapper
     clapSound() {
         this.clapper.play();
+    }
+    // keep app awake
+    stayAwake() {
+        this.silent.play();
     }
 
     // Starts timer
@@ -65,6 +74,7 @@ class Work extends Component {
                 this.secondNumber = time * 60;
             }
             this.callCombos();
+            this.stayAwake();
     }
 
     pause() {
