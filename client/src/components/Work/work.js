@@ -231,7 +231,7 @@ class Work extends Component {
     toggle() {
         const maxRounds = this.state.maxRounds;
         // eslint-disable-next-line
-            this.state.round == maxRounds ? this.endSession() : this.break()
+            this.state.round == maxRounds ? this.endSession() : this.break();
     }
 
     // End session
