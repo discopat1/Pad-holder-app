@@ -76,7 +76,7 @@ class Work extends Component {
             this.callCombos();
             this.stayAwake();
     }
-
+    //  Pause Button
     pause() {
         clearInterval(this.intervalHandle);
         clearInterval(this.comboHandle);
@@ -193,7 +193,7 @@ class Work extends Component {
             } else {
                 this.secondNumber = 30;
             }
-            
+            this.stayAwake();
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);
@@ -302,7 +302,7 @@ class Work extends Component {
     render() {
         // console.log("storage level====", localStorage.getItem('level'));
         // console.log("storagestyle", sessionStorage.getItem('style'));
-        console.log('voices===', window.speechSynthesis.getVoices());
+        // console.log('voices===', window.speechSynthesis.getVoices());
         // console.log('round time===', this.state.roundMinutes);
         
         return (
