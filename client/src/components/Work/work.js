@@ -302,7 +302,7 @@ class Work extends Component {
     render() {
         // console.log("storage level====", localStorage.getItem('level'));
         // console.log("storagestyle", sessionStorage.getItem('style'));
-        // console.log('voices===', window.speechSynthesis.getVoices());
+        console.log('voices===', window.speechSynthesis.getVoices());
         // console.log('round time===', this.state.roundMinutes);
         
         return (
