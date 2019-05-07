@@ -5,7 +5,6 @@ import "./work.css";
 import API from "../utils/API";
 import Bell from "../Sounds/bell.m4a";
 import Clapper from "../Sounds/clapper.m4a";
-import Silent from "../Sounds/silent.m4a";
 
 // test
 class Work extends Component {
@@ -35,7 +34,6 @@ class Work extends Component {
    this.goHome = this.goHome.bind(this);
    this.bell = new Audio(Bell);
    this.clapper = new Audio(Clapper);
-   this.silent = new Audio(Silent);
    }
 
     
@@ -48,10 +46,7 @@ class Work extends Component {
     clapSound() {
         this.clapper.play();
     }
-    // keep app awake
-    stayAwake() {
-        this.silent.play();
-    }
+    
 
     // Starts timer
     startCountDown() {
@@ -74,7 +69,6 @@ class Work extends Component {
                 this.secondNumber = time * 60;
             }
             this.callCombos();
-            this.stayAwake();
     }
     //  Pause Button
     pause() {
@@ -193,7 +187,6 @@ class Work extends Component {
             } else {
                 this.secondNumber = 30;
             }
-            this.stayAwake();
     }
     breakTick() {
         var min = Math.floor(this.secondNumber / 60);
@@ -300,11 +293,6 @@ class Work extends Component {
     }
 
     render() {
-        // console.log("storage level====", localStorage.getItem('level'));
-        // console.log("storagestyle", sessionStorage.getItem('style'));
-        // console.log('voices===', window.speechSynthesis.getVoices());
-        // console.log('round time===', this.state.roundMinutes);
-        
         return (
         <div class="bg-dark">
             <div class="jumbotron jumbotron-fluid" style={ { backgroundImage: "url('images/chinese.jpg')", backgroundSize: 'contain' } }>
