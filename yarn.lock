@@ -696,16 +696,6 @@ normalize-package-data@^2.3.2:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
-nosleep.js@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/nosleep.js/-/nosleep.js-0.7.0.tgz#cfd919c25523ca0d0f4a69fb3305c083adaee289"
-  integrity sha1-z9kZwlUjyg0PSmn7MwXAg62u4ok=
-
-nosleep.js@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/nosleep.js/-/nosleep.js-0.9.0.tgz#0f1371b81dc182e3b6bbdb837e880f16db9d7163"
-  integrity sha512-qLOl2MmuGOPZY7Exi0kYJSCr2e9IcAtOykOo7hXUGAoaMC1Iqj0m+Aj2REuay68mDkhbc5CoA4ccUvcZI175Kw==
-
 npm-run-all@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-1.4.0.tgz#a469bb9feabe5bf3aa9916833baf6776582e8948"
@@ -873,13 +863,6 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
-
-react-no-sleep@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-no-sleep/-/react-no-sleep-1.0.2.tgz#1d5c084046cd88fef39d02e6b960c9e5a114789f"
-  integrity sha512-bWTs0YayEIK7wAhL1vFkXZ0A5cnqCOnm33ei8gA4uAC0ZocMAIhCJloZHcHBU3qW1pEhQ7MGtGd8tyS46WBdIg==
-  dependencies:
-    nosleep.js "^0.7.0"
 
 read-pkg@^4.0.1:
   version "4.0.1"
